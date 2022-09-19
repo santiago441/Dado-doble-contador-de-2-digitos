@@ -6,12 +6,12 @@ DigitalIn btn_1(A1);
 DigitalIn btn_2(A2);
 DigitalOut led_verde(A0);
 DigitalOut led_rojo(A5);
-DigitalIn bit1(/los que vea conveniente*/)
-DigitalIn bit2();
-DigitalIn bit3();
-DigitalIn bit4();
-DigitalIn bit5();
-DigitalIn bit6();
+DigitalIn bit1(D10)
+DigitalIn bit2(D11);
+DigitalIn bit3(D12);
+DigitalIn bit4(D13);
+DigitalIn bit5(D14);
+DigitalIn bit6(D15);
 DigitalIn bit7();
 DigitalIn botonup();
 DigitalIn butondown();
@@ -64,7 +64,7 @@ void visualizar(void){
                 srand(time(NULL));
                 num_1 = rand()%6+1;
                 ThisThread::sleep_for(500ms);
-                num_2 = 0xC0;
+                num_2 = 0;
                 led_rojo  = 0;
                 led_verde = 0;
 
@@ -91,22 +91,37 @@ void visualizar(void){
 
         
 
-        if(num_1 > num_2){
+        if(num_1 > num_2 && num_2 != 0 && !Switch_1 && Switch_2){
 
-            led_verde = 0;
-            led_rojo  = 1;
+            led_rojo  = 0;
+            led_verde = 1;
 
         } 
-        else if(num_1 <= num_2){
+        else if(num_1 > num_2 && num_2 != 0 && Switch_1 && !Switch_2){
+
+            led_rojo  = 1;
+            led_verde = 0;
+
+        } 
+        else if(num_1 <= num_2 && num_2 != 0 &&  Switch_1 && !Switch_2){
 
             led_rojo  = 0;
             led_verde = 1;
 
         }
-        
+        else if(num_1 <= num_2 && num_2 != 0 &&  !Switch_1 && Switch_2){
+
+            led_rojo  = 1;
+            led_verde = 0;
+
+        }
        
 
     }
+
+
+}
+
 void conteo (void)
 {
     numero=bit5;
