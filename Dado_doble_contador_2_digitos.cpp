@@ -14,8 +14,8 @@ DigitalIn bit4(D13);
 DigitalIn bit5(D14);
 DigitalIn bit6(D15);
 DigitalIn bit7(PB_12);
-DigitalIn botonup();
-DigitalIn botondown();
+DigitalIn botonup(PB_14);
+DigitalIn botondown(PB_15);
 static int unidad=0,x=0;
 
 BusOut Segmentos(D2,D3,D4,D5,D6,D7,D8,D9); 
