@@ -6,15 +6,13 @@ DigitalIn btn_1(A1);
 DigitalIn btn_2(A2);
 DigitalOut led_verde(A0);
 DigitalOut led_rojo(A5);
-DigitalIn bit1(D10)
+DigitalIn bit1(D10);
 DigitalIn bit2(D11);
 DigitalIn bit3(D12);
 DigitalIn bit4(D13);
 DigitalIn bit5(D14);
 DigitalIn bit6(D15);
-DigitalIn bit7();
-DigitalIn botonup();
-DigitalIn butondown();
+DigitalIn bit7(PB_12);
 
 static int unidad=0,x=0;
 
@@ -30,13 +28,13 @@ int a=0,b=0,c=0,d=0,e=0,f=0,g=0;
 int unidades=0,decenas=0,parpadeo=0;
         
 void conteo(void);
-void visualizar(void);
+void dado(void);
 
 int main(){   
 
     Segmentos = 0xC0;
 
-    visualizar();
+    dado();
 
     while(true){ 
 
@@ -44,7 +42,7 @@ int main(){
 
 }
 
-void visualizar(void){
+void dado(void){
 
     bool flag;
 
@@ -170,7 +168,7 @@ void conteo (void)
               decenas=(unidades/10);
               unidades= (unidades-(decenas*10));
             
-            button1=butonup.read();
+            button1=btn_1.read();
             if(button1==false)
             {
                 while==true;
