@@ -28,7 +28,6 @@ const char segmentos [12] = {0xC0/*0*/, 0xF9 /*1*/,  0xA4/*2*/, 0xB0/*3*/, 0x99/
 int num_1, num_2,numero,button1,button2;
 int a=0,b=0,c=0,d=0,e=0,f=0,g=0;
 int unidades=0,decenas=0,parpadeo=0;
-int titilar=0;
         
 void conteo(void);
 void dado(void);
